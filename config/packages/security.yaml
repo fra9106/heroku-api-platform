@@ -29,7 +29,7 @@ security:
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
         users:
             pattern:   ^/apip/users
-            methods: [GET, POST, DELETE] #methodes interdites sans pass
+            methods: [POST, DELETE] #methodes interdites sans pass
             stateless: true
             guard:
                 authenticators:
@@ -43,7 +43,7 @@ security:
                     - lexik_jwt_authentication.jwt_token_authenticator
         phones:
             pattern:   ^/apip/phones
-            methods: [GET, PUT, POST, DELETE]
+            methods: [PUT, POST, DELETE]
             stateless: true
             guard:
                 authenticators:
@@ -63,6 +63,6 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
-        - { path: ^/apip/users, roles: IS_AUTHENTICATED_FULLY, methods: [GET, POST, DELETE]}
+        - { path: ^/apip/users, roles: IS_AUTHENTICATED_FULLY, methods: [POST, DELETE]}
         - { path: ^/apip/shops, roles: IS_AUTHENTICATED_FULLY, methods: [GET]}
-        - { path: ^/apip/phones, roles: IS_AUTHENTICATED_FULLY, methods: [GET, PUT, POST, DELETE]}
+        - { path: ^/apip/phones, roles: IS_AUTHENTICATED_FULLY, methods: [PUT, POST, DELETE]}
